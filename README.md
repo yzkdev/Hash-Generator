@@ -2,8 +2,6 @@
 
 O **HashGenerator** é um projeto simples, criado com o objetivo de gerar **hashes seguros** a partir de uma senha informada pelo usuário. A ideia do projeto é estudar, na prática, como funciona a proteção de senhas e como elas devem ser tratadas em sistemas reais.
 
-Nada de armazenar senha em texto puro 😉 — aqui o foco é segurança, boas práticas e aprendizado.
-
 ---
 
 ## 🎯 Objetivo do Projeto
@@ -65,8 +63,21 @@ $2a$11$k8ZyUqzE...
 
 * Nunca armazenar senha em texto puro
 * Utilizar algoritmos seguros, como o BCrypt
-* Trabalhar sempre com hash + salt
-* Evitar algoritmos ultrapassados (MD5, SHA1, etc.)
+* Trabalhar sempre com hash
+
+---
+
+## 📝 Sistema de Log
+
+O projeto também conta com um **sistema de log**, que funciona como uma espécie de *memória* para o usuário.
+
+Esse sistema registra os **últimos hashes gerados**, permitindo acompanhar o histórico de uso da aplicação de forma simples e organizada.
+
+A ideia do log é:
+
+* Facilitar a visualização dos hashes já gerados
+* Simular um comportamento comum em sistemas reais
+* Reforçar o conceito de rastreabilidade e histórico de ações
 
 ---
 
@@ -82,7 +93,7 @@ $2a$11$k8ZyUqzE...
 
 ## 👨‍💻 Autor
 
-Projeto desenvolvido para fins de estudo e prática em segurança, autenticação e backend.
+Projeto desenvolvido para fins de estudo e prática em segurança e backend.
 
 ---
 
