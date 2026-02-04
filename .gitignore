@@ -1,0 +1,17 @@
+### HashGenerator Project ###
+
+### Folders
+.vs/
+bin/
+obj/
+
+### Logs e Temp Files
+*.tmp
+*.temp
+*.bak
+*.log
+
+### Random Files
+*.user.config
+*.userosscache
+*.sln.docstates
