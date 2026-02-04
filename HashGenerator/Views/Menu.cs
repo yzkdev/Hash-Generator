@@ -79,7 +79,7 @@ namespace HashGenerator.Views
                 string hashedPassword = passwordService.ValidatePassword(password);
 
                 // save log
-                Log log = new Log(id, date, input, hashedPassword);
+                Log log = new Log(id, date, hashedPassword);
                 logService.AddLog(log);
 
                 Console.Clear();
@@ -107,7 +107,6 @@ namespace HashGenerator.Views
                 {
                     Console.WriteLine($"ID: {log.Id}");
                     Console.WriteLine($"Created At: {log.Date}");
-                    Console.WriteLine($"Password: {log.PasswordInput}");
                     Console.WriteLine($"Hash: {log.Hash}");
                     Console.WriteLine("\n===========================================\n");
                 }

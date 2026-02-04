@@ -10,14 +10,12 @@ namespace HashGenerator.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public string PasswordInput { get; set; }
         public string Hash { get; set; }
 
-        public Log(int id, DateTime date, string passwordInput, string hash)
+        public Log(int id, DateTime date, string hash)
         {
             Id = id;
             Date = date;
-            PasswordInput = passwordInput;
             Hash = hash;
         }
     }

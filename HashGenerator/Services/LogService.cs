@@ -27,7 +27,7 @@ namespace HashGenerator.Services
 
         private void SaveToFile(Log log)
         {
-            string fileLine = $"{log.Id};{log.Date};{log.PasswordInput};{log.Hash}";
+            string fileLine = $"{log.Id};{log.Date};{log.Hash}";
 
             using StreamWriter writer = new StreamWriter(_filePath, append: true);
             writer.WriteLine(fileLine);
@@ -48,8 +48,7 @@ namespace HashGenerator.Services
                     (
                         int.Parse(splitter[0]),
                         DateTime.Parse(splitter[1]),
-                        splitter[2],
-                        splitter[3]
+                        splitter[2]
                     );
 
                     logs.Add(log);
