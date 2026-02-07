@@ -1,102 +1,92 @@
 # 🔐 HashGenerator
 
-O **HashGenerator** é um projeto simples, criado com o objetivo de gerar **hashes seguros** a partir de uma senha informada pelo usuário. A ideia do projeto é estudar, na prática, como funciona a proteção de senhas e como elas devem ser tratadas em sistemas reais.
+Ei, pessoal! O **HashGenerator** é uma aplicação simples de console que criei em C# para gerar **hashes seguros** de senhas. O foco aqui foi aprender na prática, aplicando conceitos de segurança, organização de código e boas práticas de backend. Nada de armazenar senhas em texto puro – tudo gira em torno de gerar hashes e registrar essas ações em um log básico, tipo uma memória da aplicação.
 
 ---
 
-## 🎯 Objetivo do Projeto
+## 🎯 O que o projeto faz
 
-* Gerar um **hash criptográfico** a partir de uma senha
-* Entender como funciona o processo de proteção de senhas
-* Servir como base para sistemas de **login e autenticação**
-* Aplicar conceitos reais usados no mercado
-
----
-
-## 🧠 Conceitos Trabalhados
-
-* Hash de senhas
-* Segurança da informação
-* Autenticação de usuários
-* Diferença entre senha pura e hash
-* Boas práticas no backend
+- Gerar hashes de senha de forma segura
+- Aplicar boas práticas de segurança com credenciais
+- Simular um fluxo de autenticação real
+- Organizar o código com Models, Services, Providers e Helpers
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## 🧠 Conceitos que usei
 
-* **C# (.NET)**
-* **BCrypt** para geração de hash de senha
-
-O BCrypt foi escolhido por ser um algoritmo seguro, amplamente utilizado e resistente a ataques de força bruta.
-
----
-
-## 🚀 Como Funciona
-
-1. O usuário informa uma senha
-2. A senha é processada pelo BCrypt
-3. O sistema gera e retorna o **hash da senha**
-4. Esse hash pode ser armazenado com segurança (ex: banco de dados)
-
-> ⚠️ A senha em texto puro é usada apenas durante a execução e não deve ser armazenada.
+- Hash de senhas
+- Segurança da informação
+- Separação de responsabilidades
+- Arquitetura em camadas
+- Persistência simples em arquivo
 
 ---
 
-## 📌 Exemplo de Uso
+## ⚙️ Tecnologias
 
-Senha informada pelo usuário:
-
-```
-MinhaSenha123
-```
-
-Hash gerado:
-
-```
-$2a$11$k8ZyUqzE...
-```
+Usei **C# (.NET)** e **BCrypt** para gerar os hashes. Escolhi o BCrypt porque é seguro, usado no mercado e resistente a ataques de força bruta. Configurei o custo de processamento para deixar o hash ainda mais forte.
 
 ---
 
-## 🔒 Boas Práticas
+## 🚀 Como funciona
 
-* Nunca armazenar senha em texto puro
-* Utilizar algoritmos seguros, como o BCrypt
-* Trabalhar sempre com hash
+Quando você roda a aplicação, aparece um menu interativo. Daí, você escolhe o que fazer: gerar um novo hash, ver os hashes já criados ou sair.
 
----
+### Opções do menu
 
-## 📝 Sistema de Log
-
-O projeto também conta com um **sistema de log**, que funciona como uma espécie de *memória* para o usuário.
-
-Esse sistema registra os **últimos hashes gerados**, permitindo acompanhar o histórico de uso da aplicação de forma simples e organizada.
-
-A ideia do log é:
-
-* Facilitar a visualização dos hashes já gerados
-* Simular um comportamento comum em sistemas reais
-* Reforçar o conceito de rastreabilidade e histórico de ações
+- **Criar hash**: Digite uma senha, e ela vira um hash com BCrypt
+- **Visualizar logs**: Mostra todos os hashes gerados, com data e ID
+- **Encerrar**: Fecha o programa
 
 ---
 
-## 📚 Possíveis Evoluções
+## 🔐 Como gero o hash
 
-* Validação de senha (comparar senha digitada com hash)
-* Integração com banco de dados
-* Implementação de sistema de login
-* Criação de API ou interface gráfica
-* Registro de logs de autenticação
+A senha que você informa vai para um objeto `Password`. O `PasswordService` cuida da validação e geração, enquanto o `PasswordProvider` isola a parte criptográfica. No final, você vê um hash seguro. A senha em texto puro só fica na memória durante o processo.
 
 ---
 
-## 👨‍💻 Autor
+## 📝 Sistema de log
 
-Projeto desenvolvido para fins de estudo e prática em segurança e backend.
+Cada hash novo é salvo automaticamente em um log, que é como uma memória da aplicação. Os logs ficam em um arquivo (`Data/log.txt`) e incluem só:
+
+- ID do registro
+- Data de criação
+- Hash gerado
+
+Nada de senhas em texto puro. Você pode ver esse histórico direto no menu.
+
+---
+
+## 🧱 Estrutura do projeto
+
+Organizei assim:
+
+- **Views**: Para interagir com o usuário (menu e fluxos)
+- **Models**: As entidades principais (`Password`, `Log`)
+- **Services**: As regras de negócio (`PasswordService`, `LogService`)
+- **Providers**: Coisas específicas, como o BCrypt
+- **Helpers**: Para ler e validar entradas do usuário
+
+---
+
+## 📚 Ideias para melhorar
+
+- Adicionar validação de senha com hash (tipo login)
+- Melhorar o controle dos logs
+- Integrar com banco de dados
+- Fazer uma interface gráfica ou API
+- Tratar erros de forma mais avançada
+
+---
+
+## 👨‍💻 Sobre mim
+
+Desenvolvi isso para estudar C#, segurança e autenticação. É um projeto de aprendizado.
 
 ---
 
 ## 📄 Licença
 
-Uso livre para fins educacionais e aprendizado.
+Livre para uso educacional e aprendizado.
